@@ -1,5 +1,5 @@
+#include <algorithm>
 #include <iostream>
-#include <stack>
 using namespace std;
 
 int main() {
@@ -15,17 +15,9 @@ int main() {
 
   for (int i = 0; i < 10; i++) {
     // reverse cards
-    stack<int> card_stack;
     int start, end;
     cin >> start >> end;
-    for (int i = start; i <= end; i++) {
-      card_stack.push(cards[i]);
-    }
-    for (int i = start; i <= end; i++) {
-      int card = card_stack.top();
-      card_stack.pop();
-      cards[i] = card;
-    }
+    reverse(cards + start, cards + end + 1);
   }
 
   // print cards
